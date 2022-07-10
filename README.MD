@@ -1,4 +1,4 @@
-# Resize-pascal-voc
+# Resize-GAN-Research
 
 It's a package for resizing ALL your dataset images (into local folder)
 
