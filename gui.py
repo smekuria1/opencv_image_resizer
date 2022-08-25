@@ -1,8 +1,5 @@
-import subprocess
-import sys
-from time import time
-from tkinter import N
 import PySimpleGUI as sg
+from mainGUI import mainCall
 
 def main():
     sg.theme('DarkPurple4')
@@ -33,45 +30,22 @@ def main():
         #  Check which mode user wants to run
         # Default is Size
         elif event == 'Run' and values['-size-'] :
-            command = f"python main.py -p {datasetPath} -o {outputPath} -x {xVal} -y {yVal} -m size"
-            print(f"Running command \n {command}")
-            runScript(cmd=command, window=window)
+            window.perform_long_operation(lambda:mainCall(path=datasetPath,out=outputPath,x=xVal,y=yVal,mode="size"),'-COMPLETED-')
             
         elif event == 'Run' and values['-scale-'] :
-            command = f"python main.py -p {datasetPath} -o {outputPath} -x {xVal} -y {yVal} -m scale"
-            print(f"Running command \n {command}")
-            runScript(cmd=command, window=window)
+            window.perform_long_operation(lambda:mainCall(path=datasetPath,out=outputPath,x=xVal,y=yVal,mode="scale"),'-COMPLETED-')
             
         elif event == 'Run' and values['-percent-'] :
-            command = f"python main.py -p {datasetPath} -o {outputPath} -x {xVal} -y {yVal} -m percentage"
-            print(f"Running command \n {command}")
-            runScript(cmd=command, window=window)
+            window.perform_long_operation(lambda:mainCall(path=datasetPath,out=outputPath,x=xVal,y=yVal,mode="percentage"),'-COMPLETED-')
             
         elif event == 'Run' and values['-target-'] :
-            command = f"python main.py -p {datasetPath} -o {outputPath} -x {xVal} -y {yVal} -m target"
-            print(f"Running command \n {command}")
-            runScript(cmd=command, window=window)
+            window.perform_long_operation(lambda:mainCall(path=datasetPath,out=outputPath,x=xVal,y=yVal,mode="target"),'-COMPLETED-')
+        elif event == '-COMPLETED-':
+            sg.popup('Done')
         
     
     
     window.Close()
-
-# This function does the actual "running" of the command.  Also watches for any output. If found output is printed
-def runScript(cmd, timeout=None, window=None):
-    p = subprocess.Popen(cmd,shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    output = ''
-    for line in p.stdout:
-        line = line.decode(errors='replace' if (sys.version_info) < (3, 5) else 'backslashreplace').rstrip()
-        output += line
-        print(line)
-        if window:
-            window.Refresh()
-        else:
-            p.wait()
-            p.kill()       
-    retval = p.wait(timeout)
-    return(retval,output)
-                         # also return the output just for fun
 
 if __name__ == '__main__':
     main()
