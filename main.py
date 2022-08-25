@@ -56,8 +56,10 @@ args.output_path = add_end_slash(args.output_path)
 for root, _, files in os.walk(args.dataset_path):
         output_path = os.path.join(args.output_path, root[len(args.dataset_path):])
         create_path(output_path)
-
         for file in files:
+            print(f"Resizing in File {file}")
             if file.endswith(IMAGE_FORMATS):
                 file_path = os.path.join(root, file)
                 process_image(file_path, output_path, args.x, args.y, args.mode)
+
+print("DONE")
