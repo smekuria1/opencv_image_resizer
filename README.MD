@@ -8,6 +8,7 @@ It's a package for resizing ALL your dataset images (into local folder)
 - [Warnings](#Warnings)
 - [Install requirements](#Install-requirements)
 - [Usage](#Usage)
+- [Usage GUI](#GUI)
 - [Parameters](#Parameters)
 
 ### How it works?
@@ -36,6 +37,12 @@ python3 main.py -p <IMAGES> --output <IMAGES> --new_x <NEW_X_SIZE> --new_y <NEW_
 ```
 python3 main.py -p /images_example --output ./output --new_x 150 --new_y 150
 ```
+
+## GUI
+
+If you are not comfortable using the command line to input parameters run `python gui.py` and follow the instructions on the GUI
+
+![gui](./gui.png)
 
 ## Parameters
 
