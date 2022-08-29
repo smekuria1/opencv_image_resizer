@@ -29,13 +29,13 @@ pip install -r requirements.txt
 ## Usage
 
 ```
-python3 main.py -p <IMAGES> --output <IMAGES> --new_x <NEW_X_SIZE> --new_y <NEW_X_SIZE>
+python main.py -p <IMAGES> --output <IMAGES> --new_x <NEW_X_SIZE> --new_y <NEW_X_SIZE>
 ```
 
 ## Example
 
 ```
-python3 main.py -p /images_example --output ./output --new_x 150 --new_y 150
+python main.py -p /images_example --output ./output --new_x 150 --new_y 150
 ```
 
 ## GUI
