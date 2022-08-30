@@ -9,6 +9,7 @@ It's a package for resizing ALL your dataset images (into local folder)
 - [Install requirements](#Install-requirements)
 - [Usage](#Usage)
 - [Usage GUI](#GUI)
+- [Usage Executable](#Executable)
 - [Parameters](#Parameters)
 
 ### How it works?
@@ -37,6 +38,10 @@ python main.py -p <IMAGES> --output <IMAGES> --new_x <NEW_X_SIZE> --new_y <NEW_X
 ```
 python main.py -p /images_example --output ./output --new_x 150 --new_y 150
 ```
+
+## Executable
+
+A portable .exe file is available in `/dist` to be run from any directory on machine that has python installed `run gui.exe` (might need to wait a little bit for the program to get started)
 
 ## GUI
 

@@ -7,3 +7,4 @@ output/*
 /in
 /out
 *.spec
+/build
